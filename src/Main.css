@@ -1,0 +1,17 @@
+body { 
+    background-color: red;
+}
+
+.title { 
+    margin-top: 20px;
+}
+
+hr {
+    width: 10%;
+    margin-left: 500px;
+    /* margin-right: auto; */
+}
+
+.errand-div{
+    display: block;
+}
