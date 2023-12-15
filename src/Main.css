@@ -15,3 +15,7 @@ hr {
 .errand-div{
     display: block;
 }
+
+.close {
+    transform: scale(0.6);
+}

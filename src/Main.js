@@ -1,52 +1,33 @@
 import './Main.css';
 import 'bootstrap';
-import $, { error } from 'jquery';
+import $ from 'jquery';
 import { useState } from "react";
-
+import Errand from './Errand';
 function Main() {
     let [userInput, setInput] = useState("");
+    let [enteredErrand, setErrand] = useState("");
     let [listOfErrands, updateList] = useState([]);
+    let [isAdded, setAddBool] = useState(false);
   return (
     <div className="main">
         <h1 className='title'>Personal Todo List</h1>
-        
+        {/* <button class="close" type="button">&#x2715;</button> */}
         <label htmlFor="thing-todo">Add to-do here...</label>
-        <input type="text" id="thingtodo" name="thingtodo" onChange={(e)=>{
+        <input type="text" id="thingtodo" name="thingtodo" value={userInput} onChange={(e)=>{
             let {target: {value}} = e;
             setInput(value);
         }} onKeyDown={(e)=>{
             if (e.key === "Enter") {
-                listOfErrands.push(userInput);
+                let {target: {value}} = e;
+                setErrand(value);
+                listOfErrands.push(enteredErrand);
                 updateList(listOfErrands);
-                console.log(listOfErrands);
-                /*
-                <input type="checkbox" name="vehicle1" value="Bike">
-                <label for="vehicle1"> I have a bike</label><br>
-
-                here we want to create an input element and its corresponding label. 
-                To create it and add it to the DOM, we'd do: 
-                - document.createElement(label); document.createElement(input);
-                */
-                //before ANYTHING ELSE, the div container:
-                let errandDiv = document.createElement("div");
-                $(errandDiv).attr("class", "errand-div")
-               //first, the label:
-               let newLabel = document.createElement("label");
-               let labelName = `errand-${listOfErrands.length}`;
-               $(newLabel).prop("for", labelName);
-               $(newLabel).html(userInput);
-               //then the actual input:
-               let newInput = document.createElement("input");
-               $(newInput).prop("type", "checkbox");
-               $(newInput).prop("name", labelName);
-               $(newInput).val(userInput);
-
-               $(errandDiv).append(newLabel, newInput);
-                $("#root").append(errandDiv);
+                setAddBool(true);
             }
         }}/>
         
-        
+        {(isAdded === true ? <Errand name={enteredErrand} number={listOfErrands.length}/> : null)}
+
     </div>
   );
 }
