@@ -1,16 +1,12 @@
 body { 
-    background-color: red;
+    background-image: url('https://imgs.search.brave.com/bBeGHoMcZfWLt7DLytqZ09phAb6ncLesWWjJg-llYs4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzQxLzM0LzI0/LzM2MF9GXzQxMzQy/NDgwX2tyVlpJdjZ4/QXBWTWxZVUxMbXNY/OWEzR1Uwb254NjBZ/LmpwZw');
+    background-size: cover;
 }
 
 .title { 
     margin-top: 20px;
 }
 
-hr {
-    width: 10%;
-    margin-left: 500px;
-    /* margin-right: auto; */
-}
 
 .errand-div{
     display: block;
@@ -18,4 +14,21 @@ hr {
 
 .close {
     transform: scale(0.6);
+}
+
+#clearBtn {
+    margin-left: 10px;
+}
+
+#submitBtn {
+    margin-left: 10px;
+}
+
+#txtFldLbl {
+    margin-right: 10px;
+}
+
+.errand-list {
+    display: list-item;
+    list-style-type: square;
 }
